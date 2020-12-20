@@ -1,42 +1,18 @@
 <template>
   <div class="bpm-outer">
+    <Navigation />
     <Nuxt />
-   <ModeSwitch></ModeSwitch>
+    <ModeSwitch></ModeSwitch>
   </div>
 </template>
 
-<style>
-html {
-  font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-.bpm-outer {
-  position: absolute;
-  height: 100vh;
-  width: 100%;
-  overflow: scroll;
-
-}
+<style lang="scss">
+@import "assets/scss/theme";
+@import "assets/scss/styles";
 </style>
+<script>
+import Navigation from "~/components/Navigation";
+export default {
+  components: {Navigation}
+}
+</script>

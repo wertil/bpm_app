@@ -17,6 +17,9 @@
     "vuesax": "^4.0.1-alpha.25"
   },
   "devDependencies": {
-    "@nuxt/types": "^2.14.12"
+    "@nuxt/types": "^2.14.12",
+    "fibers": "^5.0.0",
+    "sass": "^1.30.0",
+    "sass-loader": "^10.1.0"
   }
 }

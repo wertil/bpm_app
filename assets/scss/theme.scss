@@ -1,0 +1,125 @@
+// Vue Sax Variables:
+body {
+  --vs-primary: 207, 56, 56;
+  --vs-success: 23, 201, 100;
+  --vs-danger: 242, 19, 93;
+  --vs-warn: 254, 130, 0;
+  --vs-dark: 36, 33, 69;
+}
+
+
+:root {
+  --text: #000;
+  --textOverDark: #fff;
+  --contentBG: rgba(255, 255, 255, 0.93);
+  --bpmLocal: #31858F;
+  --bpmLocalBG: #dbeeef;
+  --bpmGlobal: #CF3838; // also for Buttons
+  --bpmGlobalBG: #f9f0f0;
+  --bgInfo: #e6eaed;
+  --linkColor: #CF3838;
+  --tableHeadBG: #DBEBDB;
+  --tableBorder: #DBEBDB;
+  --bgTextOverImages: #ffffffc4;
+  --boxShadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+}
+
+@mixin dark-mode {
+  --text: #fff;
+  --contentBG: rgba(22, 22, 22, 0.8);
+  --bpmLocal: #085058;
+  --bpmLocalBG: #085058;
+  --bpmGlobal: #751c1c;
+  --bpmGlobalBG: #751c1c;
+  --bgInfo: #484848;
+  --linkColor: #da9191;
+  --tableHeadBG: #000;
+  --tableBorder: #5f5f5f;
+  --bgTextOverImages: #2b2b2bb8;
+  --boxShadow: 0px 0px 2px 1px rgba(255, 255, 255, 0.2);
+}
+
+.bpm--dark-mode {
+  @include dark-mode;
+  --vs-primary: 117, 28, 28;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include dark-mode;
+  }
+}
+
+
+$fontHeadline: 'Passion One';
+$text: var(--text);
+$textOverDark: var(--textOverDark);
+$bgInfo: var(--bgInfo);
+$bpmGlobal: var(--bpmGlobal);
+$bpmGlobalBG: var(--bpmGlobalBG);
+$contentBG: var(--contentBG);
+$lightBG: var(--bpm);
+$linkColor: var(--linkColor);
+$bpmLocal: var(--bpmLocal);
+$bpmYellow: #FCC300;
+$bpmLocalBG: var(--bpmLocalBG);
+$tableBorder: var(--tableBorder);
+$tableHeadBG: var(--tableHeadBG);
+$textLight: #4e4c4c;
+$bgTextOverImages: var(--bgTextOverImages);
+
+$breakpoint-desktop: 1380px;
+$breakpoint-tablet: 1000px;
+$breakpoint-mobile: 800px;
+
+$gap: 1em;
+$gapMedium: 1.5 * $gap;
+$gapBig: 2 * $gap;
+
+
+@mixin box-shadow {
+  box-shadow: var(--boxShadow);
+}
+
+@mixin box-shadow-image {
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.3);
+}
+
+
+html {
+  font-family: 'Source Sans Pro',
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  Roboto,
+  'Helvetica Neue',
+  Arial,
+  sans-serif;
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background: $contentBG;
+  color: $text;
+}
+
+.bpm-outer {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  overflow: scroll;
+
+}
