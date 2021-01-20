@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+
     <div>
       <Logo />
       <h1 class="title">
@@ -7,12 +7,11 @@
       </h1>
       <div class="links">
         <a
-          href="https://nuxtjs.org/"
-          target="_blank"
+          href="/photos"
           rel="noopener noreferrer"
           class="button--green"
         >
-          Documentation
+          Photos
         </a>
         <a
           href="https://github.com/nuxt/nuxt.js"
@@ -24,7 +23,7 @@
         </a>
       </div>
     </div>
-  </div>
+
 </template>
 
 <script>

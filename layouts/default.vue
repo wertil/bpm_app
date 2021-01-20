@@ -1,9 +1,18 @@
 <template>
-  <div class="bpm-outer">
-    <Navigation />
-    <Nuxt />
-    <ModeSwitch></ModeSwitch>
-  </div>
+    <v-app>
+
+        <Navigation/>
+        <v-sheet
+          id="scrolling-techniques-3"
+          class="overflow-y-auto"
+        >
+          <v-container>
+            <Nuxt/>
+
+          </v-container>
+        </v-sheet>
+      <ModeSwitch></ModeSwitch>
+    </v-app>
 </template>
 
 <style lang="scss">
@@ -12,6 +21,7 @@
 </style>
 <script>
 import Navigation from "~/components/Navigation";
+
 export default {
   components: {Navigation}
 }
