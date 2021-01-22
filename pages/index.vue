@@ -29,7 +29,22 @@
 <script>
 import Logo from '~/components/Logo';
 export default {
-  components: {Logo}
+  components: {Logo},
+  // Vue Meta
+  head() {
+    return {
+      title: 'Home',
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        // https://nuxtjs.org/docs/2.x/components-glossary/pages-head
+        {
+          hid: 'home',
+          name: 'home',
+          content: 'cool shit'
+        }
+      ]
+    }
+  }
 }
 </script>
 

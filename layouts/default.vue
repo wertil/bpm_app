@@ -1,18 +1,16 @@
 <template>
-    <v-app>
+  <v-app>
+    <Navigation/>
 
-        <Navigation/>
-        <v-sheet
-          id="scrolling-techniques-3"
-          class="overflow-y-auto"
-        >
-          <v-container>
-            <Nuxt/>
+    <v-content>
+      <v-container>
+        <Nuxt/>
+      </v-container>
+    </v-content>
 
-          </v-container>
-        </v-sheet>
-      <ModeSwitch></ModeSwitch>
-    </v-app>
+    <Footer />
+
+  </v-app>
 </template>
 
 <style lang="scss">
@@ -21,8 +19,16 @@
 </style>
 <script>
 import Navigation from "~/components/Navigation";
+import Footer from "../components/Footer";
 
 export default {
-  components: {Navigation}
+  // Vue Meta (Meta Information)
+  // metaInfo = head() with Nuxt
+  head() {
+    return {
+      titleTemplate: '%s - Backpacking Asia',
+    }
+  },
+  components: {Footer, Navigation}
 }
 </script>
