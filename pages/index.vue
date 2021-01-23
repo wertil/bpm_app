@@ -1,35 +1,20 @@
 <template>
 
-    <div>
-      <Logo />
-      <h1 class="title">
-        BPM
-      </h1>
-      <div class="links">
-        <a
-          href="/photos"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Photos
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+  <div>
+    <Logo/>
+    <LocationsCard
+      v-for="(location, index) in locations" :key="index" :location="location" :data-index="index"
+      class="mb-3"
+    />
+  </div>
 
 </template>
 
 <script>
 import Logo from '~/components/Logo';
+import LocationsCard from "../components/LocationsCard";
+
 export default {
-  components: {Logo},
   // Vue Meta
   head() {
     return {
@@ -44,6 +29,20 @@ export default {
         }
       ]
     }
+  },
+  components: {LocationsCard, Logo},
+  // asyncData is a Nuxt hook for universal data fetching
+  // https://nuxtjs.org/docs/2.x/features/data-fetching/
+  asyncData({$axios, error}) {
+    return $axios.get('http://localhost:8000/locations')
+      .then(response => {
+        return {
+          locations: response.data // merges with component data
+        }
+      })
+      .catch(e => {
+        error({statusCode: 503, message: 'Unable to fetch locations at this time. Plz try again.'})
+      })
   }
 }
 </script>
