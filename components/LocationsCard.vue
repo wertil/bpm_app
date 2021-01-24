@@ -1,14 +1,16 @@
 <template>
-  <v-card>
-    <v-card-title>
-      {{ location.title }}
-    </v-card-title>
-    <v-card-text>
-      <p>{{ parsedDate }}</p>
-      {{ location.description }}
-    </v-card-text>
 
-  </v-card>
+        <v-card :to="'/location/' + location.id">
+            <v-card-title>
+                {{ location.title }}
+            </v-card-title>
+            <v-card-text>
+                <p>{{ parsedDate }}</p>
+                {{ location.description }}
+            </v-card-text>
+
+        </v-card>
+
 </template>
 
 <script>
