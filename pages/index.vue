@@ -2,10 +2,15 @@
 
     <div>
         <Logo/>
-        <LocationsCard
-            v-for="(location, index) in locations" :key="index" :location="location" :data-index="index"
-            class="mb-3"
-        />
+        <v-row>
+            <v-col cols="6" v-for="(location, index) in locations" :key="index" >
+                <LocationsCard
+                   :location="location" :data-index="index"
+                    class="mb-3"
+                />
+            </v-col>
+        </v-row>
+
     </div>
 
 </template>
@@ -13,6 +18,7 @@
 <script>
 import Logo from '~/components/Logo';
 import LocationsCard from "../components/LocationsCard";
+import {mapState} from 'vuex'
 
 export default {
     // Vue Meta
@@ -44,16 +50,18 @@ export default {
                 error({statusCode: 503, message: 'Unable to fetch locations at this time. Plz try again.'})
             })
     },
-    async asyncData({$axios, error}) {
+    async fetch({store, error}) {
         try {
-            const {data} = await $axios.get('http://localhost:8000/locations');
-            return {
-                locations: data // merges with component data
-            }
+            await store.dispatch('locations/fetchEvents')
         } catch (e) {
             error({statusCode: 503, message: 'Unable to fetch locations at this time. Plz try again.'})
         }
-    }
+    },
+    computed:
+        mapState({
+            locations: state => state.locations.locations
+        })
+
 }
 </script>
 

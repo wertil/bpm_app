@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
   // Vue Meta
   head() {
@@ -21,16 +22,17 @@ export default {
       ]
     }
   },
-    async asyncData({$axios, error, params}) {
+    async fetch({store, error, params}) {
         try {
-            const {data} = await $axios.get('http://localhost:8000/locations/' + params.id);
-            return {
-                location: data // merges with component data
-            }
+            await store.dispatch('locations/fetchEvent', params.id);
         } catch (e) {
             error({statusCode: 503, message: 'Unable to fetch location +' + params.id + '. Plz try again.'})
         }
-    }
+    },
+    computed:
+    mapState({
+        location: state => state.locations.location
+    })
 }
 </script>
 
