@@ -3,9 +3,9 @@
     <div>
         <Logo/>
         <v-row>
-            <v-col cols="6" v-for="(location, index) in locations" :key="index" >
+            <v-col cols="6" v-for="(location, index) in locations" :key="index">
                 <LocationsCard
-                   :location="location" :data-index="index"
+                    :location="location" :data-index="index"
                     class="mb-3"
                 />
             </v-col>
@@ -59,7 +59,7 @@ export default {
     },
     computed:
         mapState({
-            locations: state => state.locations.locations
+            locations: state => state.locations.locations,
         })
 
 }
