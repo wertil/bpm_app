@@ -12,6 +12,7 @@ const apiClient = axios.create({
 
 export default {
     getCountryByName(name) {
-        return apiClient.get('/name/' + name + '?fullText=true')
+        const url = 'name/' + name + '?fullText=true'
+        return apiClient.get(url)
     }
 }

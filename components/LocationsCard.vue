@@ -4,7 +4,7 @@
         <v-card-title>
             {{ location.title }}
         </v-card-title>
-        <v-card-text>
+        <v-card-text v-if="countryData">
             <p><strong>Capital: </strong> {{ countryData.capital }}</p>
             <p><strong>Population: </strong> {{ population }}</p>
         </v-card-text>

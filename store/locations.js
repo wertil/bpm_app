@@ -20,16 +20,10 @@ export const mutations = {
 }
 
 export const actions = {
-    fetchEvents({commit, dispatch, getters} ) {
+    fetchLocations({commit, dispatch, getters} ) {
         return EventService.getEvents()
             .then(({data}) => {
                 commit('SET_EVENTS', data)
-                let countries = getters.getCountries
-                if(!countries.length) {
-                    data.forEach(country => {
-                        dispatch('fetchRestCountry', country.title)
-                    })
-                }
             })
     },
     fetchEvent({commit}, id) {
@@ -38,9 +32,17 @@ export const actions = {
                 commit('SET_EVENT', response.data)
             })
     },
+    fetchRestCountries({commit,dispatch,getters}) {
+        let locations = getters.getLocations
+        locations.forEach(location => {
+            dispatch('fetchRestCountry', location.title)
+        })
+    },
     fetchRestCountry({commit}, name) {
+        console.log({name})
         return RestCountries.getCountryByName(name)
             .then(response => {
+                console.log({response})
                 commit('SET_REST_COUNTRY', response.data)
             })
     }
@@ -51,5 +53,6 @@ export const getters = {
     getCountryByName2: state => {
        return  name => state.restCountries.find(c => c.name === name)
     },
+    getLocations: state => state.locations,
     getCountries: state => state.restCountries
 }

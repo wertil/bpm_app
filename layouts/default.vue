@@ -1,16 +1,16 @@
 <template>
-  <v-app>
-    <Navigation/>
+    <v-app>
+        <Navigation/>
 
-    <v-main>
-      <v-container>
-        <Nuxt/>
-      </v-container>
-    </v-main>
+        <v-main>
+            <v-container>
+                <Nuxt/>
+            </v-container>
+        </v-main>
 
-    <Footer />
+        <Footer/>
 
-  </v-app>
+    </v-app>
 </template>
 
 <style lang="scss">
@@ -21,14 +21,16 @@
 import Navigation from "~/components/Navigation";
 import Footer from "../components/Footer";
 
+
 export default {
-  // Vue Meta (Meta Information)
-  // metaInfo = head() with Nuxt
-  head() {
-    return {
-      titleTemplate: '%s - Backpacking Asia',
-    }
-  },
-  components: {Footer, Navigation}
+    // Vue Meta (Meta Information)
+    // metaInfo = head() with Nuxt
+    head() {
+        return {
+            titleTemplate: '%s - Backpacking Asia',
+        }
+    },
+    components: {Footer, Navigation},
+    name: "DefaultLayout"
 }
 </script>

@@ -37,29 +37,19 @@ export default {
         }
     },
     components: {LocationsCard, Logo},
-    // asyncData is a Nuxt hook for universal data fetching
-    // https://nuxtjs.org/docs/2.x/features/data-fetching/
-    asyncData_syntax_with_then({$axios, error}) {
-        return $axios.get('http://localhost:8000/locations')
-            .then(response => {
-                return {
-                    locations: response.data // merges with component data
-                }
-            })
-            .catch(e => {
-                error({statusCode: 503, message: 'Unable to fetch locations at this time. Plz try again.'})
-            })
-    },
+    // Store Action to fetch location data
+    // fetch is a nuxt lifecycle hook: https://nuxtjs.org/blog/understanding-how-fetch-works-in-nuxt-2-12/
     async fetch({store, error}) {
         try {
-            await store.dispatch('locations/fetchEvents')
+            await store.dispatch('locations/fetchLocations')
+            await store.dispatch('locations/fetchRestCountries')
         } catch (e) {
             error({statusCode: 503, message: 'Unable to fetch locations at this time. Plz try again.'})
         }
     },
     computed:
         mapState({
-            locations: state => state.locations.locations,
+            locations: state => state.locations.locations
         })
 
 }
