@@ -1,24 +1,15 @@
 <template>
-
-    <div>
-        <Logo/>
+    <v-container>
         <v-row>
-            <v-col cols="6" v-for="(location, index) in locations" :key="index">
-                <LocationsCard
-                    :location="location" :data-index="index"
-                    class="mb-3"
-                />
-            </v-col>
+            <Logo/>
+            <Locations/>
         </v-row>
-
-    </div>
-
+    </v-container>
 </template>
 
 <script>
 import Logo from '~/components/Logo';
-import LocationsCard from "../components/LocationsCard";
-import {mapState} from 'vuex'
+import Locations from "../components/Locations";
 
 export default {
     // Vue Meta
@@ -36,7 +27,7 @@ export default {
             ]
         }
     },
-    components: {LocationsCard, Logo},
+    components: {Locations, Logo},
     // Store Action to fetch location data
     // fetch is a nuxt lifecycle hook: https://nuxtjs.org/blog/understanding-how-fetch-works-in-nuxt-2-12/
     async fetch({store, error}) {
@@ -47,14 +38,8 @@ export default {
             error({statusCode: 503, message: 'Unable to fetch locations at this time. Plz try again.'})
         }
     },
-    computed:
-        mapState({
-            locations: state => state.locations.locations
-        })
+
 
 }
 </script>
 
-<style>
-
-</style>

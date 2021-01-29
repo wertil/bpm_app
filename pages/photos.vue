@@ -1,10 +1,10 @@
 <template>
 
-  <div>
-
-    <Login/>
-
-  </div>
+  <v-container>
+      <v-row>
+          <Login/>
+      </v-row>
+  </v-container>
 
 </template>
 
