@@ -1,10 +1,8 @@
 <template>
-    <v-container>
-        <v-row>
-            <Logo/>
-            <Locations/>
-        </v-row>
-    </v-container>
+    <ContentWrapper>
+        <Logo/>
+        <Locations/>
+    </ContentWrapper>
 </template>
 
 <script>

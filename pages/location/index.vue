@@ -1,5 +1,8 @@
 <template>
-    <Locations/>
+    <ContentWrapper>
+        <Locations/>
+    </ContentWrapper>
+
 </template>
 
 <script>

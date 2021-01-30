@@ -28,6 +28,7 @@ export default {
   plugins: [
     '~/plugins/vuesax.js',
     '~/plugins/boxicons.js',
+    '~/plugins/globalComponents.js',
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

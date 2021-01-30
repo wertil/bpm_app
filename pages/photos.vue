@@ -1,15 +1,11 @@
 <template>
-
-  <v-container>
-      <v-row>
-          <Login/>
-      </v-row>
-  </v-container>
-
+    <ContentWrapper>
+        <Login/>
+    </ContentWrapper>
 </template>
 
 <script>
-import Login from "../components/Login";
+import Login from "../components/vuetify-tutorial/Login";
 export default {
   components: {Login},
   // Vue Meta
