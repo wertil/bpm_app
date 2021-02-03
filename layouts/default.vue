@@ -29,6 +29,10 @@ export default {
         }
     },
     components: {Footer, Navigation},
-    name: "DefaultLayout"
+    name: "DefaultLayout",
+    beforeMount() {
+        if (localStorage.getItem('darkMode'))
+            this.$vuetify.theme.dark = JSON.parse(localStorage.getItem('darkMode'));
+    }
 }
 </script>

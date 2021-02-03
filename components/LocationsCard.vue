@@ -40,7 +40,7 @@ export default {
 
 <style scoped>
 .country {
-    background: #f5f5f5;
+    background: var(--bgInfo);
 }
 .flag {
     height: 4rem;

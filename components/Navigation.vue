@@ -1,6 +1,6 @@
 <template>
 
-    <v-app-bar app collapse-on-scroll fixed dark>
+    <v-app-bar app collapse-on-scroll fixed>
 
         <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
