@@ -3,6 +3,23 @@
         <v-container>
             <h1>Dashboard</h1>
 
+            <v-card class="mb-5 pa-3">
+                <h2>Counter: {{ counter }}</h2>
+                <v-card-actions>
+                    <v-btn @click="countUp">+</v-btn>
+                    <v-btn @click="countDown">-</v-btn>
+                </v-card-actions>
+            </v-card>
+
+            <v-card class="mb-5 pa-3">
+                <h2>Employees</h2>
+                <ul>
+                    <li v-for="employee in salesEmployees" :key="employee.id">
+                        {{ employee.name }} ({{ employee.title }})
+                    </li>
+                </ul>
+            </v-card>
+
             <v-row>
                 <v-col cols="12" sm="6" md="4" v-for="sale in sales" :key="`${sale.title}`">
                     <SalesGraph :sale="sale"/>
@@ -81,17 +98,29 @@ export default {
             snackbar: false,
             statistics: statisticsData,
             timeline: timelineData,
-            loadNewContent: false
+            loadNewContent: false,
+            counter: 0
+        }
+    },
+    computed: {
+        salesEmployees(){
+            return this.employees.filter( emp => emp.title.startsWith("Sales"))
         }
     },
     methods: {
+        countUp() {
+            this.counter++
+        },
+        countDown() {
+            this.counter > 0 && this.counter--
+        },
         setEmployee(event) {
             this.snackbar = true
             this.selectedEmployee.name = event.name
             this.selectedEmployee.title = event.title
         },
         showMoreContent(entries) {
-            if(entries[0].isIntersecting)
+            if (entries[0].isIntersecting)
                 this.loadNewContent = entries[0].isIntersecting
         }
     }
